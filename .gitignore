@@ -1,0 +1,4 @@
+# Internal Slack/Notion ETL scratch data — must NOT be committed (contains internal names, ad titles, review data)
+*.csv
+builderbot_*.csv
+dash_rows_*.csv
