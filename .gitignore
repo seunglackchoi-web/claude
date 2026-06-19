@@ -4,3 +4,6 @@
 builderbot_*.csv
 dash_rows_*.csv
 idx_master.psv
+*.json
+master.json
+build_master.py
