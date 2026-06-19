@@ -7,3 +7,6 @@ idx_master.psv
 *.json
 master.json
 build_master.py
+page_summary.md
+*.psv
+광고심의_*.csv
