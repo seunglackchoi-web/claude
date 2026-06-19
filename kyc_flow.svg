@@ -8,13 +8,14 @@
       .edge{fill:#777;font-size:12px;font-weight:bold;}
       .bt{font-size:14px;font-weight:bold;}
       .sm{font-size:12px;}
+      .xs{font-size:11px;}
       text{dominant-baseline:middle;}
     </style>
   </defs>
 
   <!-- title -->
-  <text x="500" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#111">법인 업무 처리 — 한 장 의사결정 흐름</text>
-  <text x="500" y="52" text-anchor="middle" font-size="12" fill="#888">실명확인은 항상 먼저 · KYC는 "대상 업무 + KYC 만료"일 때만</text>
+  <text x="500" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#111">법인 업무 처리 — 한 장 의사결정 흐름 (유효성 우선)</text>
+  <text x="500" y="52" text-anchor="middle" font-size="12" fill="#888">실명확인은 항상 먼저 → KYC 유효성부터 확인 → (만료일 때만) KYC 대상 여부 확인</text>
 
   <!-- START -->
   <rect x="405" y="66" width="190" height="42" rx="21" fill="#eceff1" stroke="#90a4ae"/>
@@ -27,72 +28,73 @@
   <text x="500" y="173" text-anchor="middle" class="sm" fill="#1565c0">신분증·셀피/계좌인증·사업자등록증명원·등기부</text>
   <line x1="500" y1="190" x2="500" y2="222" stroke="#555" stroke-width="2" marker-end="url(#arw)"/>
 
-  <!-- Diamond 1 -->
+  <!-- Diamond 1 : KYC 유효성 우선 -->
   <polygon points="500,224 600,292 500,360 400,292" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
-  <text x="500" y="285" text-anchor="middle" class="bt" fill="#5d4037">이 업무가</text>
-  <text x="500" y="303" text-anchor="middle" class="bt" fill="#5d4037">KYC 대상인가?</text>
+  <text x="500" y="285" text-anchor="middle" class="bt" fill="#5d4037">STEP 2 · KYC가</text>
+  <text x="500" y="303" text-anchor="middle" class="bt" fill="#5d4037">유효한가?</text>
 
-  <!-- D1 No -> left green box A -->
+  <!-- D1 Yes(유효) -> left green box A -->
   <line x1="400" y1="292" x2="300" y2="292" stroke="#555" stroke-width="2" marker-end="url(#arw)"/>
-  <text x="350" y="280" text-anchor="middle" class="edge">아니오</text>
-  <rect x="50" y="258" width="250" height="68" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
-  <text x="175" y="282" text-anchor="middle" class="bt" fill="#1b5e20">① BO 가</text>
-  <text x="175" y="302" text-anchor="middle" class="sm" fill="#2e7d32">실명확인만 심사 → 완료</text>
+  <text x="350" y="280" text-anchor="middle" class="edge">예 (유효)</text>
+  <rect x="44" y="250" width="256" height="84" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="172" y="272" text-anchor="middle" class="bt" fill="#1b5e20">① 실명확인만 심사 · BO</text>
+  <text x="172" y="291" text-anchor="middle" class="sm" fill="#2e7d32">→ 완료</text>
+  <rect x="70" y="305" width="204" height="20" rx="10" fill="#c8e6c9"/>
+  <text x="172" y="316" text-anchor="middle" class="xs" fill="#1b5e20" font-weight="bold">← 대부분의 반복 거래가 여기</text>
 
-  <!-- D1 Yes -> down -->
+  <!-- D1 No(만료) -> down -->
   <line x1="500" y1="360" x2="500" y2="392" stroke="#555" stroke-width="2" marker-end="url(#arw)"/>
-  <text x="516" y="378" class="edge">예</text>
+  <text x="516" y="378" class="edge">아니오 (만료/무효)</text>
 
   <!-- Diamond 2 -->
   <polygon points="500,394 600,462 500,530 400,462" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
-  <text x="500" y="455" text-anchor="middle" class="bt" fill="#5d4037">기존 KYC가</text>
-  <text x="500" y="473" text-anchor="middle" class="bt" fill="#5d4037">아직 유효한가?</text>
+  <text x="500" y="455" text-anchor="middle" class="bt" fill="#5d4037">STEP 3 · KYC</text>
+  <text x="500" y="473" text-anchor="middle" class="bt" fill="#5d4037">대상 업무인가?</text>
 
-  <!-- D2 Yes -> left green box B (gray zone) -->
+  <!-- D2 No -> left green box B -->
   <line x1="400" y1="462" x2="300" y2="462" stroke="#555" stroke-width="2" marker-end="url(#arw)"/>
-  <text x="350" y="450" text-anchor="middle" class="edge">예(유효)</text>
-  <rect x="40" y="420" width="260" height="84" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" stroke-dasharray="6 3"/>
-  <text x="170" y="443" text-anchor="middle" class="bt" fill="#1b5e20">② KYC 건너뜀 (pass)</text>
-  <text x="170" y="463" text-anchor="middle" class="sm" fill="#2e7d32">BO 가 실명확인만 심사 → 완료</text>
-  <rect x="92" y="476" width="156" height="20" rx="10" fill="#ffcdd2"/>
-  <text x="170" y="487" text-anchor="middle" class="sm" fill="#b71c1c" font-weight="bold">⚠ 회색지대 (R&amp;R 논의중)</text>
+  <text x="350" y="450" text-anchor="middle" class="edge">아니오</text>
+  <rect x="44" y="430" width="256" height="68" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="172" y="452" text-anchor="middle" class="bt" fill="#1b5e20">② 실명확인만 심사 · BO</text>
+  <text x="172" y="471" text-anchor="middle" class="sm" fill="#2e7d32">→ 완료</text>
+  <text x="172" y="488" text-anchor="middle" class="xs" fill="#777">(KYC 만료 + KYC 비대상, 드묾)</text>
 
-  <!-- D2 No -> down orange box C -->
+  <!-- D2 Yes -> down orange box C -->
   <line x1="500" y1="530" x2="500" y2="566" stroke="#555" stroke-width="2" marker-end="url(#arw)"/>
-  <text x="516" y="550" class="edge">아니오 (만료/없음)</text>
-  <rect x="360" y="568" width="280" height="78" rx="10" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
-  <text x="500" y="592" text-anchor="middle" class="bt" fill="#e65100">③ KYC팀 이</text>
-  <text x="500" y="612" text-anchor="middle" class="sm" fill="#ef6c00">KYC + 실명확인 모두 심사</text>
-  <text x="500" y="630" text-anchor="middle" class="sm" fill="#ef6c00">→ 완료</text>
+  <text x="516" y="550" class="edge">예 (KYC 대상)</text>
+  <rect x="360" y="568" width="280" height="80" rx="10" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="500" y="590" text-anchor="middle" class="bt" fill="#e65100">③ KYC + 실명확인 · KYC팀</text>
+  <text x="500" y="609" text-anchor="middle" class="sm" fill="#ef6c00">→ 완료</text>
+  <text x="500" y="630" text-anchor="middle" class="xs" fill="#bf360c">법인명·대표자명 변경 = KYC 무효 → 여기</text>
 
   <!-- Examples panel -->
-  <rect x="668" y="120" width="312" height="430" rx="10" fill="#fafafa" stroke="#ddd"/>
+  <rect x="668" y="120" width="312" height="438" rx="10" fill="#fafafa" stroke="#ddd"/>
   <text x="684" y="142" font-size="14" font-weight="bold" fill="#444">어떤 업무가 어디로 가나</text>
 
   <rect x="684" y="156" width="14" height="14" rx="3" fill="#e8f5e9" stroke="#2e7d32"/>
-  <text x="706" y="164" class="bt" fill="#1b5e20">① 실명확인만 · BO</text>
-  <text x="690" y="184" class="sm" fill="#555">· 인증수단 발급(인증서·OTP)</text>
-  <text x="690" y="202" class="sm" fill="#555">· 입금계좌지정 / 한도 증액</text>
-  <text x="690" y="220" class="sm" fill="#555">· 계좌비번 초기화 / 잔액증명서</text>
-  <text x="690" y="238" class="sm" fill="#555">· 전자금융서비스 해지</text>
+  <text x="706" y="164" class="bt" fill="#1b5e20">① KYC 유효 → BO</text>
+  <text x="690" y="184" class="sm" fill="#555">· KYC 유효기간 내 추가 계좌개설</text>
+  <text x="690" y="202" class="sm" fill="#555">· KYC 유효 상태의 상품 신규</text>
+  <text x="690" y="220" class="sm" fill="#555">· 인증서 발급·입금계좌지정 등 반복거래</text>
 
-  <rect x="684" y="262" width="14" height="14" rx="3" fill="#e8f5e9" stroke="#2e7d32" stroke-dasharray="3 2"/>
-  <text x="706" y="270" class="bt" fill="#1b5e20">② KYC 유효 · BO (회색지대)</text>
-  <text x="690" y="290" class="sm" fill="#555">· KYC 유효기간 내 추가 계좌개설</text>
-  <text x="690" y="308" class="sm" fill="#555">· (KYC 유효 시) 상품 신규</text>
-  <text x="690" y="330" class="sm" fill="#b71c1c">→ 같은 메뉴인데 ③과 갈림!</text>
+  <rect x="684" y="246" width="14" height="14" rx="3" fill="#fff3e0" stroke="#ef6c00"/>
+  <text x="706" y="254" class="bt" fill="#e65100">③ KYC 만료 + KYC 대상 → KYC팀</text>
+  <text x="690" y="274" class="sm" fill="#555">· 최초 계좌개설</text>
+  <text x="690" y="292" class="sm" fill="#555">· KYC 만료 후 상품 신규</text>
+  <text x="690" y="310" class="sm" fill="#555">· 법인명 / 대표자명 변경 (KYC 무효화)</text>
+  <text x="690" y="328" class="sm" fill="#555">· KYC 재이행 주기 도래</text>
 
-  <rect x="684" y="356" width="14" height="14" rx="3" fill="#fff3e0" stroke="#ef6c00"/>
-  <text x="706" y="364" class="bt" fill="#e65100">③ KYC + 실명확인 · KYC팀</text>
-  <text x="690" y="384" class="sm" fill="#555">· 최초 계좌개설</text>
-  <text x="690" y="402" class="sm" fill="#555">· KYC 만료 후 상품 신규</text>
-  <text x="690" y="420" class="sm" fill="#555">· 법인명 / 대표자명 변경</text>
-  <text x="690" y="438" class="sm" fill="#555">· KYC 재이행 주기 도래</text>
+  <rect x="684" y="352" width="14" height="14" rx="3" fill="#e8f5e9" stroke="#2e7d32"/>
+  <text x="706" y="360" class="bt" fill="#1b5e20">② KYC 만료 + KYC 비대상 → BO</text>
+  <text x="690" y="380" class="sm" fill="#555">· 드문 케이스 (단순 실명확인 업무)</text>
 
-  <line x1="684" y1="462" x2="964" y2="462" stroke="#eee"/>
-  <text x="684" y="482" class="sm" fill="#999">💡 ②의 분기(KYC 유효?)가</text>
-  <text x="684" y="500" class="sm" fill="#999">모든 혼란의 근원. ②를 BO로</text>
-  <text x="684" y="518" class="sm" fill="#999">확정하면 회색지대가 사라짐.</text>
+  <line x1="684" y1="404" x2="964" y2="404" stroke="#eee"/>
+  <text x="684" y="424" class="sm" fill="#999">💡 핵심 분기 = KYC 유효성.</text>
+  <text x="684" y="442" class="sm" fill="#999">계좌개설도 유효면 ①, 만료면 ③.</text>
+  <text x="684" y="466" class="xs" fill="#b71c1c">⚠ 정보변경(법인명·대표자명·실소유자)</text>
+  <text x="684" y="482" class="xs" fill="#b71c1c">업무는 날짜 유효해도 'KYC 무효'로 처리.</text>
+  <text x="684" y="506" class="xs" fill="#999">※ 결과는 순서를 바꿔도 동일.</text>
+  <text x="684" y="522" class="xs" fill="#999">(유효성 우선이 KYC팀 멘탈모델과 일치)</text>
 
   <!-- legend -->
   <rect x="50" y="668" width="16" height="16" rx="3" fill="#e8f5e9" stroke="#2e7d32"/>
