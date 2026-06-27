@@ -1,0 +1,23 @@
+{
+  "acme.sales_db.orders": {
+    "order_id": "STRING",
+    "customer_id": "STRING",
+    "status": "STRING",
+    "total_amount": "FLOAT64",
+    "currency": "STRING",
+    "created_at": "TIMESTAMP",
+    "refunded_amount": "NUMERIC"
+  },
+  "acme.sales_db.customers": {
+    "customer_id": "STRING",
+    "email": "STRING",
+    "country": "STRING",
+    "created_at": "TIMESTAMP"
+  },
+  "acme.sales_db.order_items": {
+    "order_id": "STRING",
+    "product_id": "STRING",
+    "quantity": "INT64",
+    "unit_price": "NUMERIC"
+  }
+}
